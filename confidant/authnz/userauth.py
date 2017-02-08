@@ -566,7 +566,7 @@ class SamlAuthenticator(AbstractUserAuthenticator):
 
         auth = self._saml_auth()
 
-        logging.debug('Processing SAML response')
+        logging.info('Processing SAML response: {}'.format(jsonify(session=session.items(), headers=request.headers.items())))
 
         try:
             request_id = session['saml_authn_request_id']
