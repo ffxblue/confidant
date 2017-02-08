@@ -27,4 +27,4 @@ RUN node_modules/grunt-cli/bin/grunt build
 
 EXPOSE 80
 
-CMD ["gunicorn","confidant.wsgi:app","--workers=2","-k","gevent","--access-logfile=-","--error-logfile=-"]
+CMD ["gunicorn","confidant.wsgi:app","--log-level=debug","--workers=2","-k","gevent","--access-logfile=-","--error-logfile=-"]
