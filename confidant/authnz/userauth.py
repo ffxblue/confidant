@@ -801,6 +801,7 @@ class SamlAuthenticator(AbstractUserAuthenticator):
             'request_id': auth.get_last_request_id(),
         }
         logging.warn('Errors: {0}'.format(data))
+        logging.info('Processing: {}'.format(jsonify(session=session.items(), headers=request.headers.items())))
 
         resp = jsonify(**data)
         resp.status_code = 500
