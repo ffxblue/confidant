@@ -6,7 +6,7 @@ import base64
 import re
 
 from pynamodb.exceptions import PutError
-from flask import request
+from flask import request, session
 from flask import jsonify
 from botocore.exceptions import ClientError
 
@@ -33,6 +33,7 @@ def login():
     '''
     Send user through login flow.
     '''
+    logging.info('Processing: {}'.format(jsonify(session=session.items(), headers=request.headers.items())))
     return authnz.log_in()
 
 
